@@ -1,10 +1,10 @@
 import express from "express";
-import employees from "#employees";
+import employees from "/Users/a.tiffanycharles/Desktop/Fullstack-coursework/block34/EmployeeDirectory/db/employees.js";
 
 const app = express();
 
-app.get("/", req, res) => {
-  res.send("Hello Employee!");
+app.get("/", (req, res) => {
+  res.send("Hello employees!");
 });
 
 app.get("/employees", (req, res) => {
@@ -14,7 +14,7 @@ app.get("/employees", (req, res) => {
 app.get("/employees/random", (req, res) => {
   const randomIndex = Math.floor(Math.random() * employees.length);
   res.json(employees[randomIndex]);
-  });
+});
 
 app.get("/employees/:id", (req, res) => {
   const id = parseInt(req.params.id);
@@ -27,3 +27,4 @@ app.get("/employees/:id", (req, res) => {
   res.json(employee);
 });
 
+export default app;
